@@ -1,0 +1,12 @@
+name: Override environment variables
+on: push
+env: 
+  EXAMPLE: Defined by workflow level
+jobs: 
+  print:
+    runs-on: ubuntu-latest
+    step: 
+      - run: echo "${{ env.EXAMPLE }}"
+      - env:
+          EXAMPLE: Defined by job level
+          run: echo "${{ env.EXAMPLE }}"
