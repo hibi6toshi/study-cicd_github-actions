@@ -1,4 +1,4 @@
-nae: Intermidiate environment variables
+name: Intermidiate environment variables
 on: push
 jobs:
   print:
