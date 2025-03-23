@@ -1,0 +1,8 @@
+name: GITHUB_ENV
+on: push
+jobs: 
+  share: 
+    runs-on: ubuntu-latest
+    steps: 
+      - run: echo "RESULT=hello" >> "${GITHUB_ENV}" # GITHUB_ENVに値を書き込む
+      - run: echo "${RESULT}" # 通常の環境変数として参照
