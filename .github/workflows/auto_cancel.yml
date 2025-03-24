@@ -1,0 +1,10 @@
+name: Auto cancel
+on: pull_request  # プルリクエストをトリガーにする
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }} # 同じプルリクエストの同じワークフローをキャンセルする
+  cancel-in-progress: true
+jobs:
+  sleep:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sleep 120
