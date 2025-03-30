@@ -1,0 +1,7 @@
+name: Degub log
+on: push 
+lobs:
+  log:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "::debug::This is a debug log"
