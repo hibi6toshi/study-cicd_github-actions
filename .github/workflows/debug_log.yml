@@ -1,6 +1,6 @@
 name: Degub log
 on: push 
-lobs:
+jobs:
   log:
     runs-on: ubuntu-latest
     steps:
