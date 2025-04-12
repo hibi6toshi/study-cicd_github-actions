@@ -1,0 +1,17 @@
+name: Auto merge
+on: pull_request
+jobs:
+  merge:
+    if: ${{ github.actor == 'dependabot[bot]' }} # Dependabot のプルリクエストのみ
+    runs-on: ubuntu-latest
+    permissions:                                 # マージに必要なパーミッション
+      contents: write
+      pull-requests: write
+    env: 
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # GitHub CLI のトークン
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          gh pr review "${GITHUB_HEAD_REF}" --approve     # GitHub CLI で PR を承認
+          gh pr merge "${GITHUB_HEAD_REF}" --merge --auto # GitHub CLI で PR をマージ
+
