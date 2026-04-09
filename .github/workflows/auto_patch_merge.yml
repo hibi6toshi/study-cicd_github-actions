@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - id: meta                            # 依存関係のメタデータを取得
-        uses: dependabot/fetch-metadata@v2  # Dependabot のメタデータを取得
+        uses: dependabot/fetch-metadata@v3  # Dependabot のメタデータを取得
       - if: ${{ steps.meta.outputs.update-type == 'version-update:semver-patch '}}
         run: |
           gh pr review "${GITHUB_HEAD_REF}" --approve    
