@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - uses: actions/checkout@v7
-      - uses: actions/cache@v5                         # キャッシュの復元と保存
+      - uses: actions/cache@v6                         # キャッシュの復元と保存
         with: 
           key: test-${{runner.os }}-${{ github.sha }}  # キャッシュのキーを指定
           path: ${{ github.workspace }}/dummy          # キャッシュ対象のパス
